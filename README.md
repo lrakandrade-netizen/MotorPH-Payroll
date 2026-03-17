@@ -9,13 +9,19 @@ The system reads data from CSV files and calculates employee salary based on att
 Files Included
 
 MotorPHemployees.csv –  Employee information such as employee ID, name, and salary details.
+
 MotorPHemployeeattendance.csv – Employee attendance records used to calculate working hours.
+
 MotorPHPayroll.iml – IntelliJ project file.
 
-Tools
+Used Tools
+
 Java
+
 IntelliJ IDEA
+
 GitHub
 
 Author
+
 Ana Khristina Andrade
