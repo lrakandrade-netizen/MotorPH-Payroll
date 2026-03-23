@@ -2,166 +2,165 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
 package payrolldeduction;
 
-/**
- *
- * @author PGN-0253
- */
 public class PayrollDeduction {
 
-    private static int i;
-    
-    public static void  main(String[] args) {
-        
-      
-      int[] employeeID = {10001, 10002, 10003, 10004, 10005, 10006, 
-          10007, 10008, 10009, 10010, 10011, 10012, 10013, 10014, 10015, 10016, 
-          10017, 10018, 10019, 10020, 10021, 10022, 10023, 10024, 10025,
-          10026, 10027, 10028, 10029, 10030, 10031, 10032, 10033, 10034};
-      
-      String[] employeeName = {"Garcia, Manuel", "Lim, Antonio", "Aquiono, Biance", "Reyes, Isabella",
-          "Hernandez, Eduard", "Villanueva Andrea", "San Jose, Brad", "Romualdez, Alice", "Ateinza, Rosie",
-          "Alvaro, Roderick", "Salcedo, Anthony", "Lopez, Josie", "Farala, Martha", "Martinez, Leila",
-          "Romualdez, Fredrick", "Mata, Christian", "De leon, Selena", "San Jose, Allion", "Rosario, Cydney",
-          "Bautista, Mark", "Lazaro, Darlene", "Delos Santos, Kolby", "Santos, Vella", "Del Rosario, Tomas",
-          "Tolentino, Jacklyn", "Gutierez, Percival", "Manalaysay, Garfield", "Villegas, Lizeth", "Ramos, Carol",
-          "Maceda, Emelia", "Aguilar, Delia", "Castro, John Rafael", "Martinez, Carlos Ian", "Santos, Beatriz"
-      };
-      
-      double[] grossSalary = {42800, 24990, 28560, 28170, 21910, 17850, 10640, 9310, 25040, 24160, 
-          18320, 9940, 25440, 20400, 19920, 9310, 9310, 9310, 11040, 11040, 10640, 10640, 11360, 
-          12495, 11025, 11360, 9975, 10640, 11305, 23457, 25040, 25040, 23475, 21910};
-      
-      System.out.println("====================================================");
-        System.out.println("MotorPH Payroll Deduction Summary");
-        System.out.println("====================================================");
-      
-     // Loop through employees
-     for(int i = 0; i < employeeID.length; i++) {
-     double sss = computeSSS(grossSalary[i]);
-     double philhealth = computePhilHealth(grossSalary[i]);
-     double pagibig = computePagIbig(grossSalary[i]);
-     double tax = computeIncomeTax(grossSalary[i]);
+    public static void main(String[] args) {
 
-     double totalDeductions = sss + philhealth + pagibig + tax;
-     double netPay = grossSalary[i] - totalDeductions;
-          String[] employeeNames = null;
-          
-     
-    System.out.println("Employee: " + employeeName[i]);
-    System.out.println("Gross Salary: " + grossSalary[i]);
-    System.out.println("SSS: " + sss);
-    System.out.println("PhilHealth: " + philhealth);
-    System.out.println("PagIBIG: " + pagibig);
-    System.out.println("Tax: " + tax);
-    System.out.println("Total Deductions: " + totalDeductions);
-    System.out.println("Net Pay: " + netPay);
-    System.out.println("--------------------------------");
-    } 
         
-     
-}     
-    private static double computeSSS(double grossSalary) {
+        int[] employeeID = {10001,10002,10003,10004,10005,10006, 
+            10007,10008,10009,10010,10011,10012, 
+            10013,10014,10015,10016,10017,10018, 
+            10019,10020,10021,10022,10023,10024, 
+            10025,10026,10027,10028,10029,10030, 
+            10031,10032,10033,10034
+};
+
+        String[] names = {
+            "Garcia, Manuel", "Lim, Antonio", "Aquiono, Biance", "Reyes, Isabella",
+            "Hernandez, Eduard", "Villanueva, Andrea", "San Jose, Brad", "Romualdez, Alice", "Ateinza, Rosie",
+            "Alvaro, Roderick", "Salcedo, Anthony", "Lopez, Josie", "Farala, Martha", "Martinez, Leila",
+            "Romualdez, Fredrick", "Mata, Christian", "De Leon, Selena", "San Jose, Allion", "Rosario, Cydney",
+            "Bautista, Mark", "Lazaro, Darlene", "Delos Santos, Kolby", "Santos, Vella", "Del Rosario, Tomas",
+            "Tolentino, Jacklyn", "Gutierez, Percival", "Manalaysay, Garfield", "Villegas, Lizeth", "Ramos, Carol",
+            "Maceda, Emelia", "Aguilar, Delia", "Castro, John Rafael", "Martinez, Carlos Ian", "Santos, Beatriz"
+
+        };
+
+        double[] hourlyRate = {
+            535, 357, 357, 313, 313, 255, 133, 133, 313,
+            302, 229, 142, 318, 255, 249, 133, 133, 138,
+            138, 142, 133, 133, 142, 147, 147,
+            142, 133, 133, 133, 313, 313, 313, 313, 313
+
+        };
+
         
-        if(grossSalary <= 42800)
-            return 1125;
-        if(grossSalary <= 24990)
-            return 1125;
-        if(grossSalary <= 28560)
-            return 1125;
-        if(grossSalary <= 28170)
-            return 1125;
-        if(grossSalary <= 21910)
-            return 1112.50;
-        if(grossSalary <= 17850)
-            return 832.50;
-        if(grossSalary <= 10640)
-            return 472.50;
-        if(grossSalary <= 9310)
-            return 427.50;
-        if(grossSalary <= 25040)
-            return 1125;
-        if(grossSalary <= 24160)
-            return 1080;
-        if(grossSalary <= 18320)
-            return 832.50;
-        if(grossSalary <= 9940)
-            return 427.50;
-        if(grossSalary <= 25440)
-            return 1125;
-        if(grossSalary <= 20400)
-            return 922.50;
-        if(grossSalary <= 19920)
-            return 900;
-        if(grossSalary <= 9310)
-            return 427.50;
-        if(grossSalary <= 9310)
-            return 427.50;
-        if(grossSalary <= 9310)
-            return 427.50;
-        if(grossSalary <= 11040)
-            return 517.50;
-        if(grossSalary <= 11040)
-            return 517.50;
-        if(grossSalary <= 10640)
-            return 472.50;
-        if(grossSalary <= 10640)
-            return 472.50;
-        if(grossSalary <= 11360)
-            return 517.50;
-        if(grossSalary <= 12495)
-            return 562.50;
-        if(grossSalary <= 11025)
-            return 495.50;
-        if(grossSalary <= 11360)
-            return 517.50;
-        if(grossSalary <= 9975)
-            return 450.50;
-        if(grossSalary <= 10640)
-            return 495;
-        if(grossSalary <= 11305)
-            return 517.50;
-        if(grossSalary <= 23457)
-            return 1057;
-        if(grossSalary <= 25040)
-            return 1125;
-        if(grossSalary <= 25040)
-            return 1125;
-        if(grossSalary <= 23475)
-            return 1057;
-        if(grossSalary <= 21910)
-            return 990;
-        return 0;    
+        double[] hoursCutoff1 = {80, 70, 80, 90, 70, 70, 80, 70, 80,
+            80, 80, 70, 80, 80, 80, 70, 70, 80, 80, 70, 80, 80, 80, 85, 75,
+            80, 75, 80, 85, 75, 80, 80, 75, 70
+};
+        double[] hoursCutoff2 = {85, 70, 75, 80, 70, 70, 85, 70, 80,
+            80, 70, 75, 80, 85, 80, 70, 70, 80, 80, 70, 80, 80, 80, 85, 75,
+            80, 80, 80, 70, 75, 80, 80, 80, 70
+};
+
+        
+        for (int i = 0; i < employeeID.length; i++) {
+
+            double gross1 = computeGross(hoursCutoff1[i], hourlyRate[i]);
+            double gross2 = computeGross(hoursCutoff2[i], hourlyRate[i]);
+
+            double sss = computeSSS(gross2);
+            double philhealth = computePhilHealth(gross2);
+            double pagibig = computePagIbig(gross2);
+            double tax = computeIncomeTax(gross2);
+
+            double totalDeduction = sss + philhealth + pagibig + tax;
+            double netPay2 = gross2 - totalDeduction;
+
+            
+            printEmployeePayslip(
+                    employeeID[i],
+                    names[i],
+                    hourlyRate[i],
+                    hoursCutoff1[i],
+                    gross1,
+                    hoursCutoff2[i],
+                    gross2,
+                    sss,
+                    philhealth,
+                    pagibig,
+                    tax,
+                    totalDeduction,
+                    netPay2
+            );
+        }
     }
-    
-        public static double computePhilHealth(double grossSalary){
-    double contribution = grossSalary * 0.03;
-    return contribution / 2;
-}
-    
-        public static double computePagIbig(double grossSalary){
-    if(grossSalary > 1500)
-        return 100;
-    else
-        return grossSalary * 0.02;
-       }
 
-        public static double computeIncomeTax(double grossSalary){
+    
 
-    if(grossSalary <= 20833)
-        return 0;
-    else if(grossSalary <= 33333)
-        return (grossSalary - 20833) * 0.20;
-    else if(grossSalary <= 66667)
-        return 2500 + (grossSalary - 33333) * 0.25;
-    else
-        return 10833 + (grossSalary - 66667) * 0.30;
-}
-       
+    private static double computeGross(double hours, double rate) {
+        return hours * rate;
     }
-         
 
-      
+    private static double computeSSS(double salary) {
+        return salary * 0.045;
+    }
+
+    private static double computePhilHealth(double salary) {
+        return salary * 0.03;
+    }
+
+    private static double computePagIbig(double salary) {
+        return (salary > 1500) ? 100 : salary * 0.02;
+    }
+
+    private static double computeIncomeTax(double salary) {
+        if (salary <= 20833)
+            return 0;
+        else if (salary <= 33332)
+            return salary * 0.15;
+        else
+            return salary * 0.20;
+    }
+
+    
+
+    private static void printEmployeePayslip(
+            int id, String name, double rate,
+            double hours1, double gross1,
+            double hours2, double gross2,
+            double sss, double philhealth,
+            double pagibig, double tax,
+            double totalDeduction, double netPay2) {
+
+        
+        System.out.println("\n===========================================");
+        System.out.println("Employee #: " + id);
+        System.out.println("Name: " + name);
+        System.out.printf("Hourly Rate: PHP %,.2f\n", rate);
+
+        
+        System.out.println("\n===========================================");
+        System.out.println("              MOTORPH PAYSLIP");
+        System.out.println("===========================================");
+        System.out.println("Employee #: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Period: JULY (Cutoff 1)\n");
+
+        System.out.printf("Hours Worked:        %10.2f\n", hours1);
+        System.out.printf("Gross Pay:        PHP %,10.2f\n", gross1);
+        System.out.printf("Net Pay:          PHP %,10.2f\n", gross1);
+
+        
+        System.out.println("\n===========================================");
+        System.out.println("              MOTORPH PAYSLIP");
+        System.out.println("===========================================");
+        System.out.println("Employee #: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Period: JULY (Cutoff 2)\n");
+
+        System.out.printf("Hours Worked:        %10.2f\n", hours2);
+        System.out.printf("Gross Pay:        PHP %,10.2f\n", gross2);
+
+        System.out.println("\n              DEDUCTIONS\n");
+
+        System.out.printf("SSS:             PHP %,10.2f\n", sss);
+        System.out.printf("PhilHealth:      PHP %,10.2f\n", philhealth);
+        System.out.printf("Pag-IBIG:        PHP %,10.2f\n", pagibig);
+        System.out.printf("Tax:             PHP %,10.2f\n", tax);
+
+        System.out.printf("\nTotal Deduction: PHP %,10.2f\n", totalDeduction);
+        System.out.printf("Net Pay:         PHP %,10.2f\n", netPay2);
+
+        System.out.println("===========================================");
+    }
+}
     
 
